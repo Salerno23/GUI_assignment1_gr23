@@ -59,7 +59,7 @@
       <DependentUpon>ViewDebtorWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewDeptorWindowViewModel.cs" />
-    <Page Include="AddDepitorWindow.xaml">
+    <Page Include="AddDebitorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -67,8 +67,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="AddDepitorWindow.xaml.cs">
-      <DependentUpon>AddDepitorWindow.xaml</DependentUpon>
+    <Compile Include="AddDebitorWindow.xaml.cs">
+      <DependentUpon>AddDebitorWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
