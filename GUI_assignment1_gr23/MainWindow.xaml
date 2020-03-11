@@ -6,9 +6,6 @@
         xmlns:local="clr-namespace:GUI_assignment1_gr23"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="450">
-    <Window.DataContext>
-        <local:MainWindowViewModel/>
-    </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

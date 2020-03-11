@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DebtorModel.cs" />
     <Compile Include="Deptor.cs" />
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="AddDebitorWindowViewModel.cs" />
