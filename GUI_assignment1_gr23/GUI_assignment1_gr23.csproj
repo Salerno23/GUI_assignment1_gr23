@@ -56,6 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Deptor.cs" />
+    <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="ViewDebtorWindow.xaml.cs">
       <DependentUpon>ViewDebtorWindow.xaml</DependentUpon>
     </Compile>
