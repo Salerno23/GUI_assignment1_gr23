@@ -35,7 +35,7 @@ namespace GUI_assignment1_gr23
             }
         }
 
-        public int IValue
+        public int Value
         {
             get
             {

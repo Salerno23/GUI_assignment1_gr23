@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_assignment1_gr23"
         mc:Ignorable="d"
-        Title="ViewDebtorWindow" Height="450" Width="800">
+        Title="ViewDebtorWindow" Height="350" Width="450">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1">
+            <Button Grid.Column="1"
+                MinWidth="20"
+                MinHeight="12"
+                Margin="10"
+                VerticalAlignment="Top"
+                Content="Value">
+            </Button>
+            <Button Grid.Column="1"
+                Content="Add value"
+                Margin="10"
+                VerticalAlignment="Top">
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Column="0" HorizontalAlignment="Stretch">
+            <ListBox MinHeight="250"></ListBox>
+            <Button Content="Close"
+                    VerticalAlignment="Bottom"
+                    Width="55">
+            </Button>
+        </StackPanel>
     </Grid>
 </Window>
