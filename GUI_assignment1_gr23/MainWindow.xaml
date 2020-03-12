@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_assignment1_gr23"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="450">
+        Title="MainWindow" Height="450" Width="370">
     <Window.DataContext>
         <local:DebtorModel/>
     </Window.DataContext>
@@ -32,10 +32,15 @@
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition MinWidth="100"/>
+                            <ColumnDefinition MinWidth="70"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0"/>
+                        <TextBlock 
+                            Grid.Column="0" 
+                            Text="{Binding Path=Name}"/>
+                        <TextBlock 
+                            Grid.Column="1" 
+                            Text="{Binding Path=Value}"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -44,7 +49,7 @@
         <StackPanel
             Grid.Column="1"
             Grid.Row="1">
-            <Button Content="Add"
+            <Button x:Name="AddButton" Content="Add"
                     Width="50"
                     Height="30"
                     Margin="5">

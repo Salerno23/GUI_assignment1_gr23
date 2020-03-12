@@ -23,6 +23,18 @@ namespace GUI_assignment1_gr23
         public MainWindow()
         {
             InitializeComponent();
+
+            AddButton.Click += AddButton_Click;
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddDepitorVindow adw = new AddDepitorVindow();
+            adw.Owner = this;
+            if (adw.ShowDialog() == true)
+            {
+
+            }
         }
     }
 }
