@@ -10,6 +10,9 @@ namespace GUI_assignment1_gr23
 {
     class MainWindowViewModel
     {
-
+        public MainWindowViewModel()
+        {
+        }
     }
+
 }

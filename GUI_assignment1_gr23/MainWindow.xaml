@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:GUI_assignment1_gr23"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="450">
+    <Window.DataContext>
+        <local:DebtorModel/>
+    </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -21,7 +24,10 @@
         <ListBox 
             Grid.Column="0"
             Grid.Row="1"
-            x:Name="DebtorListBox">
+            x:Name="DebtorListBox"
+            ItemsSource="{Binding Path=DebtorObsList}"
+            SelectedIndex="{Binding Path=SelectedIndex}"
+            SelectedItem="{Binding Path=CurrentDeptor}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
