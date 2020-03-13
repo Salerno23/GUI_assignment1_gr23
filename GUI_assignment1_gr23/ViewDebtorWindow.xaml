@@ -6,31 +6,51 @@
         xmlns:local="clr-namespace:GUI_assignment1_gr23"
         mc:Ignorable="d"
         Title="ViewDebtorWindow" Height="350" Width="450">
+    <Window.DataContext>
+        <local:ViewDeptorWindowViewModel />
+    </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"></ColumnDefinition>
             <ColumnDefinition ></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="1">
-            <Button Grid.Column="1"
-                MinWidth="20"
-                MinHeight="12"
-                Margin="10"
-                VerticalAlignment="Top"
-                Content="Value">
-            </Button>
-            <Button Grid.Column="1"
-                Content="Add value"
-                Margin="10"
-                VerticalAlignment="Top">
-            </Button>
-        </StackPanel>
-        <StackPanel Grid.Column="0" HorizontalAlignment="Stretch">
-            <ListBox MinHeight="250"></ListBox>
-            <Button Content="Close"
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <ListBox Grid.Row="0" MinHeight="250"></ListBox>
+            
+            <Button Grid.Row="1"
+                Content="Close"
+                    Margin="10"
                     VerticalAlignment="Bottom"
                     Width="55">
             </Button>
-        </StackPanel>
+        </Grid>
+        
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <TextBox Grid.Column="1" Grid.Row="0"
+                Width="100"
+                MinHeight="12"
+                VerticalAlignment="Bottom"
+                Name="ValueTextbox">
+            </TextBox>
+            
+            <Button Grid.Column="1" Grid.Row="1"
+                Content="Add value"
+                Margin="20"
+                Width="100"
+                VerticalAlignment="Top"
+                Command="{Binding Path=AddValueCommand}">
+            </Button>
+        </Grid>
     </Grid>
 </Window>
