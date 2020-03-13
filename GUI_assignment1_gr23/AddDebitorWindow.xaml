@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_assignment1_gr23"
         mc:Ignorable="d"
-        Title="AddDepitorVindow" Height="450" Width="800">
+        Title="AddDebitorVindow" Height="300" Width="350" HorizontalAlignment="left">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" VerticalAlignment="center">Add Debitor</Label>
+        <Label Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">Firstname</Label>
+        <Label Grid.Row="2" Grid.Column="0" VerticalAlignment="center"> Initial Value</Label>
+        <Button Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Width="60"> Save</Button>
+        <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Width="100"></TextBox>
+        <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Width="100"></TextBox>
+        <Button Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Width="60">Cancel</Button>
     </Grid>
 </Window>
