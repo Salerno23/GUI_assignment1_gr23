@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace GUI_assignment1_gr23
 {
-    class MainWindowViewModel : Window
+    class MainWindowViewModel
     {
         public MainWindowViewModel()
         {

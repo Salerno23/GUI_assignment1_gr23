@@ -11,16 +11,16 @@ namespace GUI_assignment1_gr23
 {
     public class DebtorModel : INotifyPropertyChanged
     {
-        private readonly Deptor _deptorHenrik = new Deptor("Henrik", 300);
-        private readonly Deptor _deptorMichael = new Deptor("Michael", 600);
+        private readonly Debtor _debtorHenrik = new Debtor("Henrik", 300);
+        private readonly Debtor _debtorMichael = new Debtor("Michael", 600);
 
         public DebtorModel()
         {
-            DebtorObsList = new ObservableCollection<Deptor>{_deptorHenrik, _deptorMichael};
+            DebtorObsList = new ObservableCollection<Debtor>{_debtorHenrik, _debtorMichael};
             CurrentDeptor = DebtorObsList[_selectedIndex];
         }
 
-        public ObservableCollection<Deptor> DebtorObsList { get; set; }
+        public ObservableCollection<Debtor> DebtorObsList { get; set; }
 
         private int _selectedIndex = 0;
 
@@ -37,9 +37,9 @@ namespace GUI_assignment1_gr23
             }
         }
 
-        private Deptor _selectedDeptor;
+        private Debtor _selectedDeptor;
 
-        public Deptor CurrentDeptor
+        public Debtor CurrentDeptor
         {
             get => _selectedDeptor;
             set

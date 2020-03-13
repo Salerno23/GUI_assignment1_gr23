@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="ViewDebtorWindow" Height="350" Width="450">
     <Window.DataContext>
-        <local:ViewDeptorWindowViewModel />
+        <local:ViewDebtorWindowViewModel />
     </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>

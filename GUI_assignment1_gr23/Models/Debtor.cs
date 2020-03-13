@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace GUI_assignment1_gr23
 {
-    public class Deptor
+    public class Debtor
     {
         string name;
         int deptorValue;
 
         //Default constructor
-        public Deptor()
+        public Debtor()
         {
 
         }
 
-        public Deptor(string _name, int _value)
+        public Debtor(string _name, int _value)
         {
             name = _name;
             deptorValue = _value;
@@ -26,25 +26,17 @@ namespace GUI_assignment1_gr23
         public string Name
         {
             get
-            {
-                return name;
-            }
+            { return name; }
             set
-            {
-                name = value;
-            }
+            { name = value; }
         }
 
         public int Value
         {
             get
-            {
-                return deptorValue;
-            }
+            { return deptorValue; }
             set
-            {
-                deptorValue = value;
-            }
+            { deptorValue = value; }
         }
 
     }

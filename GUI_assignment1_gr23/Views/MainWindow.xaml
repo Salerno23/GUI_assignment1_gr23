@@ -19,7 +19,7 @@
             <RowDefinition/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <Label Content="Debtor"/>
+        <Label Content="Debtors"/>
 
         <ListBox 
             Grid.Column="0"

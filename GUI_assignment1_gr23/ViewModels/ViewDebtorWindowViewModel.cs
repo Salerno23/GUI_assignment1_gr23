@@ -9,7 +9,7 @@ using Prism.Mvvm;
 
 namespace GUI_assignment1_gr23
 {
-    class ViewDeptorWindowViewModel : BindableBase
+    class ViewDebtorWindowViewModel : BindableBase
     {
 
         public void AddValue()

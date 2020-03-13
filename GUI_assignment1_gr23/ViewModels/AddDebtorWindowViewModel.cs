@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GUI_assignment1_gr23
 {
-    class AddDebitorWindowViewModel
+    class AddDebtorWindowViewModel
     {
     }
 }
