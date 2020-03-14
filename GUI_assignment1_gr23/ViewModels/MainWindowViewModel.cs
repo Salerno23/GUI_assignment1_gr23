@@ -13,14 +13,17 @@ namespace GUI_assignment1_gr23
 {
     class MainWindowViewModel : BindableBase
     {
-        private readonly Debtor _debtorHenrik = new Debtor("Henrik", 300);
-        private readonly Debtor _debtorMichael = new Debtor("Michael", 600);
-
         public ObservableCollection<Debtor> DebtorObsList { get; set; }
 
         public MainWindowViewModel()
         {
-            DebtorObsList = new ObservableCollection<Debtor> { _debtorHenrik, _debtorMichael };
+            DebtorObsList = new ObservableCollection<Debtor>
+            {
+                new Debtor("Henrik", 300),
+                new Debtor("Michael", 600),
+                new Debtor("Poul Ejnar", -300)
+            };
+
             CurrentDeptor = DebtorObsList[_selectedIndex];
         }
 

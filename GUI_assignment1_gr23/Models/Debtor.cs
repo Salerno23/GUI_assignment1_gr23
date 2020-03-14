@@ -13,19 +13,19 @@ namespace GUI_assignment1_gr23
     public class Debtor : BindableBase
     {
         private string _name;
-        private int _deptorValue;
+        private int _debtorValue;
 
         //Default constructor
         public Debtor()
         {
             _name = "";
-            _deptorValue = 0;
+            _debtorValue = 0;
         }
 
         public Debtor(string name, int value)
         {
             _name = name;
-            _deptorValue = value;
+            _debtorValue = value;
         }
 
         public string Name
@@ -36,8 +36,8 @@ namespace GUI_assignment1_gr23
 
         public int Value
         {
-            get => _deptorValue;
-            set => SetProperty(ref _deptorValue, value);
+            get => _debtorValue;
+            set => SetProperty(ref _debtorValue, value);
         }
     }
 }

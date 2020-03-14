@@ -41,6 +41,7 @@
                         <TextBlock 
                             Grid.Column="1" 
                             Text="{Binding Path=Value}"/>
+
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
