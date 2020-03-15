@@ -58,5 +58,19 @@ namespace GUI_assignment1_gr23
                 //Do something with data
             }
         }
+
+        private ICommand _viewDebtorCommand;
+
+        public ICommand ViewDebtorCommand => _viewDebtorCommand ??
+                                             (_viewDebtorCommand = new DelegateCommand(ViewDebtor));
+
+        private void ViewDebtor()
+        {
+            ViewDebtorWindow vdw = new ViewDebtorWindow();
+            if (vdw.ShowDialog() == true)
+            {
+                //Do something with data
+            }
+        }
     }
 }
