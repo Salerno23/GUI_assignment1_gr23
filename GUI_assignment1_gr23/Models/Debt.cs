@@ -13,17 +13,18 @@ namespace GUI_assignment1_gr23
         private string _date;
         private int _value;
 
-        //Default constructor
-        public Debt()
-        {
-            _date = DateTime.Now.ToString();
-            _value = 0;
-        }
+        //Default constructor - skal den overhovedet bruges??
+        //public Debt()
+        //{
+        //    _date = DateTime.Now.ToString();
+        //    _value = 0;
+        //}
 
         public Debt(int value)
         {
             _date = DateTime.Now.ToShortDateString();
             _value = value;
+            
         }
 
         public string Date
@@ -31,7 +32,7 @@ namespace GUI_assignment1_gr23
             get => _date;
         }
 
-        public int Value
+        public int DebtValue
         {
             get => _value;
             set => SetProperty(ref _value, value);

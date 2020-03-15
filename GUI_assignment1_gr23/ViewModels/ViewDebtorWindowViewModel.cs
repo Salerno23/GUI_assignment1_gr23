@@ -19,7 +19,7 @@ namespace GUI_assignment1_gr23
         {
             Debts = new ObservableCollection<Debt>
             {
-                new Debt(35)
+                new Debt(35) //Test
             };
         }
 
@@ -27,7 +27,7 @@ namespace GUI_assignment1_gr23
         {
             int valuetemp = int.Parse(currentvalue);
             Debts.Add(new Debt(valuetemp));
-            currentvalue = "";
+            TextboxValue = string.Empty;
         }
 
         public void CloseWindow()
