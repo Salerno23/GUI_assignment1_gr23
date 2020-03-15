@@ -20,8 +20,15 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            
-            <ListBox Grid.Row="0" MinHeight="250"></ListBox>
+
+            <ListBox Grid.Row="0"
+                     MinHeight="250"
+                     VerticalAlignment="Top"
+                     Name="listbox_name"
+                     ItemTemplate="{StaticResource ResourceKey=DebtTemplate}"
+                     ItemsSource="{Binding Path=Debts}"
+                     IsSynchronizedWithCurrentItem="True">
+            </ListBox>
             
             <Button Grid.Row="1"
                 Content="Close"
@@ -36,12 +43,13 @@
                 <RowDefinition Height="50"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            
+
             <TextBox Grid.Column="1" Grid.Row="0"
                 Width="100"
                 MinHeight="12"
                 VerticalAlignment="Bottom"
-                Name="ValueTextbox">
+                x:Name="Textbox_Value"
+                Text="{Binding Path=TextboxValue}">
             </TextBox>
             
             <Button Grid.Column="1" Grid.Row="1"

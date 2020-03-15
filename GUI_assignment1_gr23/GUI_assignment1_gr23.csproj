@@ -71,6 +71,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\Debt.cs" />
     <Compile Include="Models\Debtor.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,16 +12,42 @@ namespace GUI_assignment1_gr23
 {
     class ViewDebtorWindowViewModel : BindableBase
     {
+        public ObservableCollection<Debt> Debts { get; set; }
+        string currentvalue = null;
 
-        public void AddValue()
+        public ViewDebtorWindowViewModel()
         {
+            Debts = new ObservableCollection<Debt>
+            {
+                new Debt(35)
+            };
+        }
 
+    public void AddValue()
+        {
+            int valuetemp = int.Parse(currentvalue);
+            Debts.Add(new Debt(valuetemp));
+            currentvalue = "";
         }
 
         public void CloseWindow()
         {
             
         }
+
+
+        public string TextboxValue
+        {
+            get
+            {
+                return currentvalue;
+            }
+            set
+            {
+                SetProperty(ref currentvalue, value);
+            }
+        }
+
 
 
         ICommand addValue;
