@@ -7,6 +7,8 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
+using Prism.Commands;
 using Prism.Mvvm;
 
 namespace GUI_assignment1_gr23
@@ -41,6 +43,20 @@ namespace GUI_assignment1_gr23
         {
             get => _selectedDeptor;
             set => SetProperty(ref _selectedDeptor, value);
+        }
+
+        private ICommand _addDebtorCommand;
+
+        public ICommand AddDebtorCommand => _addDebtorCommand ??
+                                            (_addDebtorCommand = new DelegateCommand(AddDebtor));
+
+        private void AddDebtor()
+        {
+            AddDebtorWindow adw = new AddDebtorWindow();
+            if (adw.ShowDialog() == true)
+            {
+                //Do something with data
+            }
         }
     }
 }

@@ -80,7 +80,7 @@
       <DependentUpon>ViewDebtorWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\ViewDebtorWindowViewModel.cs" />
-    <Page Include="Views\AddDebitorWindow.xaml">
+    <Page Include="Views\AddDebtorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -88,8 +88,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Views\AddDebitorWindow.xaml.cs">
-      <DependentUpon>AddDebitorWindow.xaml</DependentUpon>
+    <Compile Include="Views\AddDebtorWindow.xaml.cs">
+      <DependentUpon>AddDebtorWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
