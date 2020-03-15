@@ -26,7 +26,7 @@
                      VerticalAlignment="Top"
                      Name="listbox_name"
                      ItemTemplate="{StaticResource ResourceKey=DebtTemplate}"
-                     ItemsSource="{Binding Path=Debts}"
+                     ItemsSource="{Binding Path=DebtList}"
                      IsSynchronizedWithCurrentItem="True">
             </ListBox>
             

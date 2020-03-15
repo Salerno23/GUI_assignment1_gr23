@@ -10,14 +10,10 @@
                 <TextBlock Text="{Binding Path=Date}"
                            Padding="5, 0"
                            MinWidth="30">
-                           <!--Foreground="{Binding Path=Date}">-->
-                   
                 </TextBlock>
                 <TextBlock Text="{Binding Path=DebtValue}"
                            Padding="5, 0"
                            MinWidth="30">
-                           <!--Foreground="{Binding Path=Date}">-->
-                    
                 </TextBlock>
             </WrapPanel>
 

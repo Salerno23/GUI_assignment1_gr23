@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Linq;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,21 +13,20 @@ namespace GUI_assignment1_gr23
 {
     class ViewDebtorWindowViewModel : BindableBase
     {
-        public ObservableCollection<Debt> Debts { get; set; }
         string currentvalue = null;
+        Debtor currentdebtor = null;
 
         public ViewDebtorWindowViewModel()
         {
-            Debts = new ObservableCollection<Debt>
-            {
-                new Debt(35) //Test
-            };
+            currentdebtor = MainWindowViewModel.Instance.CurrentDeptor;
+
         }
 
     public void AddValue()
         {
             int valuetemp = int.Parse(currentvalue);
-            Debts.Add(new Debt(valuetemp));
+            currentdebtor.Debts.Add(new Debt(valuetemp));
+            currentdebtor.TotalDept += valuetemp;
             TextboxValue = string.Empty;
         }
 
@@ -35,6 +35,17 @@ namespace GUI_assignment1_gr23
             
         }
 
+        public ObservableCollection<Debt> DebtList
+        {
+            get
+            {
+                return currentdebtor.Debts;
+            }
+            //set
+            //{
+            //    //SetProperty(ref currentdebtor.Debts, value);
+            //}
+        }
 
         public string TextboxValue
         {
@@ -47,7 +58,6 @@ namespace GUI_assignment1_gr23
                 SetProperty(ref currentvalue, value);
             }
         }
-
 
 
         ICommand addValue;

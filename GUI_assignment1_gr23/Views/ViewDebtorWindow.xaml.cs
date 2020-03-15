@@ -23,5 +23,6 @@ namespace GUI_assignment1_gr23
         {
             InitializeComponent();
         }
+
     }
 }

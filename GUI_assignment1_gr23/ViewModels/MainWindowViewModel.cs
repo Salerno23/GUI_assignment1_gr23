@@ -15,12 +15,19 @@ namespace GUI_assignment1_gr23
 {
     class MainWindowViewModel : BindableBase
     {
+        //Make instance to access CurrentDeptor in ViewDeptorViewModel
+        private static MainWindowViewModel _instance = new MainWindowViewModel();
+        public static MainWindowViewModel Instance { get { return _instance; } }
+
+
+
         public ObservableCollection<Debtor> DebtorObsList { get; set; }
 
         public MainWindowViewModel()
         {
             DebtorObsList = new ObservableCollection<Debtor>
             {
+                new Debtor("Test", 5),
                 new Debtor("Henrik", 300),
                 new Debtor("Michael", 600),
                 new Debtor("Poul Ejnar", -300)
