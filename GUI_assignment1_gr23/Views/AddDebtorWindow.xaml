@@ -4,8 +4,38 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_assignment1_gr23"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:prism="http://prismlibrary.com/"
         mc:Ignorable="d"
         Title="AddDebtorWindow" Height="300" Width="350" HorizontalAlignment="left">
+    <Window.DataContext>
+        <local:AddDebtorWindowViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
+
+        <Style x:Key="LabelStyle">
+            <Style.Setters>
+                <Setter Property="Label.VerticalAlignment" Value="Center"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="TextBoxStyle">
+            <Style.Setters>
+                <Setter Property="TextBox.VerticalAlignment" Value="Center"/>
+                <Setter Property="TextBox.Width" Value="100"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="ButtonStyle">
+            <Style.Setters>
+                <Setter Property="Button.VerticalAlignment" Value="Center"/>
+                <Setter Property="Button.Width" Value="60"/>
+            </Style.Setters>
+        </Style>
+
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
@@ -17,12 +47,43 @@
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="150"/>
         </Grid.ColumnDefinitions>
-        <Label Grid.Row="0" Grid.Column="0" VerticalAlignment="center">Add Debitor</Label>
-        <Label Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">Firstname</Label>
-        <Label Grid.Row="2" Grid.Column="0" VerticalAlignment="center"> Initial Value</Label>
-        <Button Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Width="60"> Save</Button>
-        <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Width="100"></TextBox>
-        <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Width="100"></TextBox>
-        <Button Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Width="60">Cancel</Button>
+
+        <Label Grid.Row="0" 
+               Grid.Column="0" 
+               Style="{StaticResource LabelStyle}">Add Debtor</Label>
+        <Label Grid.Row="1" 
+               Grid.Column="0" 
+               Style="{StaticResource LabelStyle}">First name:</Label>
+        <Label Grid.Row="2" 
+               Grid.Column="0"
+               Style="{StaticResource LabelStyle}">Initial value:</Label>
+
+        <Button Grid.Row="3" 
+                Grid.Column="0" 
+                Style="{StaticResource ButtonStyle}"
+                Content="Save">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <prism:InvokeCommandAction Command="{Binding SaveDebtorCommand}"
+                                               CommandParameter="{}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+        <Button Grid.Row="3" 
+                Grid.Column="1" 
+                Style="{StaticResource ButtonStyle}"
+                Content="Cancel"
+                IsCancel="True">
+        </Button>
+
+        <TextBox Grid.Row="1" 
+                 Grid.Column="1" 
+                 Style="{StaticResource TextBoxStyle}"
+                 Text="{Binding Path=FirstName}"/>
+        <TextBox Grid.Row="2" 
+                 Grid.Column="1" 
+                 Style="{StaticResource TextBoxStyle}"
+                 Text="{Binding Path=InitialValue}"/>
+
     </Grid>
 </Window>

@@ -10,7 +10,7 @@ use [debtbook]
 GO
 
 CREATE TABLE [dbo].[Debtors](
-	[DebtorId] [int] IDENTITY (1, 1) NOT NULL PRIMARY KEY,
+	[DebtorId] [int] NOT NULL PRIMARY KEY,
 	[Name] [nvarchar] (50),
 	[TotalDebt] [int] NOT NULL
 ) ON [PRIMARY]
