@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DataBusinessLayer;
 
 namespace GUI_assignment1_gr23
 {
@@ -22,6 +23,7 @@ namespace GUI_assignment1_gr23
         public ViewDebtorWindow()
         {
             InitializeComponent();
+
         }
 
     }

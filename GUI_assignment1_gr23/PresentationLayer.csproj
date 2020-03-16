@@ -126,6 +126,10 @@
       <Project>{93295b6c-4b73-4454-966d-af9d883d38e0}</Project>
       <Name>DataBusinessLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UsingEventAggregator.Core\UsingEventAggregator.Core.csproj">
+      <Project>{9f5700a0-367b-4abb-8134-c14c1d6346aa}</Project>
+      <Name>UsingEventAggregator.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

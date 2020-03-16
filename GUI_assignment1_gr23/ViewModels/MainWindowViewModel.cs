@@ -10,18 +10,22 @@ using System.Windows;
 using System.Windows.Input;
 using DataBusinessLayer;
 using Prism.Commands;
+using Prism.Events;
 using Prism.Mvvm;
+using UsingEventAggregator.Core;
 
 namespace GUI_assignment1_gr23
 {
     class MainWindowViewModel : BindableBase
     {
+        IEventAggregator _ea;
         public ObservableCollection<Debtor> DebtorObsList { get; set; }
 
-        public MainWindowViewModel()
+        public MainWindowViewModel(IEventAggregator ea)
         {
-            DebtorObsList = (ObservableCollection<Debtor>) App.DebtDb.GetDebtors();
+            DebtorObsList = (ObservableCollection<Debtor>)App.DebtDb.GetDebtors();
             CurrentDeptor = DebtorObsList[_selectedIndex];
+            _ea = ea;
         }
 
         private int _selectedIndex = 0;
@@ -62,6 +66,7 @@ namespace GUI_assignment1_gr23
         private void ViewDebtor()
         {
             ViewDebtorWindow vdw = new ViewDebtorWindow();
+            _ea.GetEvent<CurrentDebtorSentEvent>().Publish(CurrentDeptor);
             if (vdw.ShowDialog() == true)
             {
                 //Do something with data

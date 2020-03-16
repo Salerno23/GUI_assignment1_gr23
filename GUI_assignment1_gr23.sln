@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database Creation", "Databa
 		TestDummyData.sql = TestDummyData.sql
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsingEventAggregator.Core", "UsingEventAggregator.Core\UsingEventAggregator.Core.csproj", "{9F5700A0-367B-4ABB-8134-C14C1D6346AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{93295B6C-4B73-4454-966D-AF9D883D38E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93295B6C-4B73-4454-966D-AF9D883D38E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93295B6C-4B73-4454-966D-AF9D883D38E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F5700A0-367B-4ABB-8134-C14C1D6346AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F5700A0-367B-4ABB-8134-C14C1D6346AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F5700A0-367B-4ABB-8134-C14C1D6346AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F5700A0-367B-4ABB-8134-C14C1D6346AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
