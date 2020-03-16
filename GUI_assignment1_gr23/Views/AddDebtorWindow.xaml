@@ -7,7 +7,8 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:prism="http://prismlibrary.com/"
         mc:Ignorable="d"
-        Title="AddDebtorWindow" Height="300" Width="350" HorizontalAlignment="left">
+        Title="AddDebtorWindow" Height="300" Width="350" HorizontalAlignment="left"
+        x:Name="ADWindow">
     <Window.DataContext>
         <local:AddDebtorWindowViewModel/>
     </Window.DataContext>
@@ -61,11 +62,12 @@
         <Button Grid.Row="3" 
                 Grid.Column="0" 
                 Style="{StaticResource ButtonStyle}"
-                Content="Save">
+                Content="Save"
+                IsDefault="True">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
                     <prism:InvokeCommandAction Command="{Binding SaveDebtorCommand}"
-                                               CommandParameter="{}"/>
+                                               CommandParameter="{Binding ElementName=ADWindow}"/>
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Button>

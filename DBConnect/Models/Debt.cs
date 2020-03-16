@@ -18,9 +18,9 @@ namespace DataBusinessLayer
             _value = value;
         }
 
-        public DateTime Date
+        public string Date
         {
-            get => _date;
+            get => _date.ToString("s");
         }
 
         public int DebtValue

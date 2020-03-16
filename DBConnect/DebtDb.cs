@@ -97,6 +97,36 @@ namespace DataBusinessLayer
             return debts;
         }
 
+        public void AddNewDebtor(Debtor debtor, Debt debt)
+        {
+            SqlConnection sqlcon = new SqlConnection(connectionString);
+            
+            string debtorInsert = "INSERT INTO Debtors" + "(DebtorId, Name, TotalDebt)" + "VALUES" + 
+                                  $"({debtor.Id}, '{debtor.Name}', {debtor.TotalDebt})";
+            string debtInsert = "INSERT INTO Debts" +
+                                "(DebtorId, Date, DebtValue)" +
+                                "VALUES" + 
+                                $"({debtor.Id}, '{debt.Date}', {debtor.TotalDebt})";
+
+            try
+            {
+                sqlcon.Open();
+
+                SqlCommand debtorInsertCommand = new SqlCommand(debtorInsert, sqlcon);
+                SqlCommand debtInsertCommand = new SqlCommand(debtInsert, sqlcon);
+
+                debtorInsertCommand.ExecuteNonQuery();
+                debtInsertCommand.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                sqlcon.Close();
+            }
+        }
 
     }
 

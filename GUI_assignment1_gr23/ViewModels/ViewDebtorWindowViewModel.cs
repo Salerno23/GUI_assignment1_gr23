@@ -14,24 +14,24 @@ namespace GUI_assignment1_gr23
 {
     class ViewDebtorWindowViewModel : BindableBase
     {
-        //string currentvalue = null;
+        ////string currentvalue = null;
         //Debtor currentdebtor = null;
 
-        public ViewDebtorWindowViewModel(Debtor currentdebtor_) {
-            currentdebtor = currentdebtor_;
-        }
+        //public ViewDebtorWindowViewModel(Debtor currentdebtor_) {
+        //    currentdebtor = currentdebtor_;
+        //}
 
-        public void AddValue()
-        {
-            int valuetemp = int.Parse(currentvalue);
+        //public void AddValue()
+        //{
+        //    int valuetemp = int.Parse(currentvalue);
 
-            DebtList = (ObservableCollection<Debt>)App.DebtDb.GetDebtsFor(currentdebtor.ID);
+        //    DebtList = (ObservableCollection<Debt>)App.DebtDb.GetDebtsFor(currentdebtor.ID);
 
 
-            currentdebtor.Debts.Add(new Debt(valuetemp));
-            currentdebtor.TotalDebt += valuetemp;
-            TextboxValue = string.Empty;
-        }
+        //    currentdebtor.Debts.Add(new Debt(valuetemp));
+        //    currentdebtor.TotalDebt += valuetemp;
+        //    TextboxValue = string.Empty;
+        //}
 
         //public void CloseWindow()
         //{
