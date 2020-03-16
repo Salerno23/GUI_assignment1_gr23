@@ -3,6 +3,7 @@ GO
 
 INSERT INTO Debtors VALUES
 (
+	1,
 	'Henrik',
 	300
 )
@@ -10,6 +11,7 @@ INSERT INTO Debtors VALUES
 
 INSERT INTO Debtors VALUES
 (
+	2,
 	'Michael',
 	-600
 )

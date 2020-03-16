@@ -66,7 +66,7 @@ namespace GUI_assignment1_gr23
         }
 
 
-        ICommand addValue;
+        //ICommand addValue;
 
         public ICommand AddValueCommand
         {

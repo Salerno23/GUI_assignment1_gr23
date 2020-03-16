@@ -5,13 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_assignment1_gr23"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-        xmlns:interactivity="http://prismlibrary.com/"
         xmlns:prism="http://prismlibrary.com/"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="370">
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>
+
+    <Window.Resources>
+        <Style x:Key="ButtonStyle">
+            <Style.Setters>
+                <Setter Property="Button.Width" 
+                        Value="50"/>
+                <Setter Property="Button.Height" 
+                        Value="30"/>
+                <Setter Property="Button.Margin" 
+                        Value="5"/>
+                <Setter Property="Button.Content" 
+                        Value="Add"></Setter>
+            </Style.Setters>
+        </Style>
+    </Window.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -57,10 +72,8 @@
         <StackPanel
             Grid.Column="1"
             Grid.Row="1">
-            <Button x:Name="AddButton" Content="Add"
-                    Width="50"
-                    Height="30"
-                    Margin="5">
+            <Button x:Name="AddButton" 
+                    Style="{StaticResource ButtonStyle}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Click">
                         <prism:InvokeCommandAction Command="{Binding AddDebtorCommand}"/>
