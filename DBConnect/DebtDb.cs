@@ -25,7 +25,7 @@ namespace DataBusinessLayer
                 SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.SingleRow);
                 if (reader.Read())
                 {
-                    debtor = new Debtor((string) reader["Name"], (int) reader["TotalDebt"]);
+                    debtor = new Debtor((string) reader["Name"], (int) reader["TotalDebt"], (int)reader["DebtorId"]);
                 }
             }
             catch (Exception e)
@@ -52,7 +52,7 @@ namespace DataBusinessLayer
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Debtor debtor = new Debtor((string)reader["Name"], (int)reader["TotalDebt"]);
+                    Debtor debtor = new Debtor((string)reader["Name"], (int)reader["TotalDebt"], (int)reader["DebtorId"]);
                     debtors.Add(debtor);
                 }
             }
