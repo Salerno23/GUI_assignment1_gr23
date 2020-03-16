@@ -2,8 +2,23 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:GUI_assignment1_gr23"
-             StartupUri="MainWindow.xaml">
+             StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
-         
+
+        <DataTemplate x:Key="DebtTemplate">
+            <WrapPanel>
+                <TextBlock Text="{Binding Path=Date}"
+                           Padding="5, 0"
+                           MinWidth="30">
+                </TextBlock>
+                <TextBlock Text="{Binding Path=DebtValue}"
+                           Padding="5, 0"
+                           MinWidth="30">
+                </TextBlock>
+            </WrapPanel>
+
+        </DataTemplate>
+
+
     </Application.Resources>
 </Application>

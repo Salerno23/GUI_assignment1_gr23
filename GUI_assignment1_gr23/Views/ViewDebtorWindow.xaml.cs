@@ -15,13 +15,14 @@ using System.Windows.Shapes;
 namespace GUI_assignment1_gr23
 {
     /// <summary>
-    /// Interaction logic for AddDepitorVindow.xaml
+    /// Interaction logic for ViewDebtorWindow.xaml
     /// </summary>
-    public partial class AddDepitorVindow : Window
+    public partial class ViewDebtorWindow : Window
     {
-        public AddDepitorVindow()
+        public ViewDebtorWindow()
         {
             InitializeComponent();
         }
+
     }
 }
