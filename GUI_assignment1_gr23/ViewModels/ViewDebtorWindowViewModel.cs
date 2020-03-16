@@ -1,96 +1,69 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Data.Linq;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using DataBusinessLayer;
+﻿using DataBusinessLayer;
 using Prism.Commands;
-using Prism.Events;
 using Prism.Mvvm;
-using UsingEventAggregator.Core;
+using System;
+using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Input;
 
-namespace GUI_assignment1_gr23
+namespace GUI_assignment1_gr23.ViewModels
 {
-    class ViewDebtorWindowViewModel : BindableBase
+    public class ViewDebtorWindowViewModel : BindableBase
     {
-        string currentvalue = null;
-        Debtor currentdebtor = null;
+        private readonly Debtor _currentDebtor;
 
-        public ViewDebtorWindowViewModel(IEventAggregator ea)
-        {
-            ea.GetEvent<CurrentDebtorSentEvent>().Subscribe(Currentdebtor);
-        }
-
-        private void Currentdebtor(Debtor parameter)
-        {
-            currentdebtor = parameter;
-        }
-
-        public void AddValue()
-        { 
-            int valuetemp = int.Parse(currentvalue);
-            DebtList.Add(new Debt(valuetemp, DateTime.Now.Date));
-            currentdebtor.TotalDebt += valuetemp;
-            TextboxValue = string.Empty;
-        }
-
-        public void CloseWindow()
-        {
-            
-        }
+        private ObservableCollection<Debt> _debtList;
 
         public ObservableCollection<Debt> DebtList
         {
-            get
-            {
-                return (ObservableCollection<Debt>)App.DebtDb.GetDebtsFor(currentdebtor.Id);
-            }
+            get => _debtList;
+            set => SetProperty(ref _debtList, value);
         }
+
+        public ViewDebtorWindowViewModel(Debtor debtor)
+        {
+            _currentDebtor = debtor;
+            _debtList = (ObservableCollection<Debt>) App.DebtDb.GetDebtsFor(_currentDebtor.Id);
+        }
+        
+        private string _currentValue = "";
 
         public string TextboxValue
         {
-            get
-            {
-                return currentvalue;
-            }
-            set
-            {
-                SetProperty(ref currentvalue, value);
-            }
+            get => _currentValue;
+            set =>  SetProperty(ref _currentValue, value);
         }
 
+        private ICommand _addValueCommand;
+        public ICommand AddValueCommand => _addValueCommand ?? 
+                                           (_addValueCommand = new DelegateCommand(
+                                                   AddValue, 
+                                                   () => TextboxValue != "")
+                                               .ObservesProperty(() => TextboxValue));
 
-        ICommand addValue;
-
-        public ICommand AddValueCommand
+        private void AddValue()
         {
-            get
-            {
-                return addValue ?? (addValue = new DelegateCommand(AddValue, AddValueCanExecute).ObservesProperty(() => TextboxValue));
-            }
+            int valueTemp = int.Parse(_currentValue);
+            Debt newDebt = new Debt(valueTemp, DateTime.Now);
+            _currentDebtor.TotalDebt += valueTemp;
+
+            App.DebtDb.AddNewDebtFor(_currentDebtor, newDebt);
+
+            DebtList = (ObservableCollection<Debt>) App.DebtDb.GetDebtsFor(_currentDebtor.Id);
+
+            TextboxValue = string.Empty;
         }
 
-        private bool AddValueCanExecute()
-        {
-            if(TextboxValue != "")
-            {
-                return true;
-            }
-            return false;
-        }
-
-        ICommand closeWindow;
+        private ICommand _closeWindowCommand;
 
         public ICommand CloseWindowCommand
         {
-            get
-            {
-                return closeWindow ?? (closeWindow = new DelegateCommand(CloseWindow));
-            }
+            get => _closeWindowCommand ?? (_closeWindowCommand = new DelegateCommand<Window>(CloseWindow));
         }
 
+        private void CloseWindow(Window window)
+        {
+            window.Close();
+        }
     }
 }

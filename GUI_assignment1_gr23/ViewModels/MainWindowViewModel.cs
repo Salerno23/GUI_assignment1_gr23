@@ -9,23 +9,26 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using DataBusinessLayer;
+using GUI_assignment1_gr23.Views;
 using Prism.Commands;
-using Prism.Events;
 using Prism.Mvvm;
-using UsingEventAggregator.Core;
 
-namespace GUI_assignment1_gr23
+namespace GUI_assignment1_gr23.ViewModels
 {
-    class MainWindowViewModel : BindableBase
+    public class MainWindowViewModel : BindableBase
     {
-        IEventAggregator _ea;
-        public ObservableCollection<Debtor> DebtorObsList { get; set; }
+        private ObservableCollection<Debtor> _debtorObsList;
 
-        public MainWindowViewModel(IEventAggregator ea)
+        public ObservableCollection<Debtor> DebtorObsList
         {
-            DebtorObsList = (ObservableCollection<Debtor>)App.DebtDb.GetDebtors();
-            CurrentDeptor = DebtorObsList[_selectedIndex];
-            _ea = ea;
+            get => _debtorObsList;
+            set => SetProperty(ref _debtorObsList, value);
+        }
+
+        public MainWindowViewModel()
+        {
+            DebtorObsList = (ObservableCollection<Debtor>) App.DebtDb.GetDebtors();
+            CurrentDebtor = DebtorObsList[_selectedIndex];
         }
 
         private int _selectedIndex = 0;
@@ -36,12 +39,12 @@ namespace GUI_assignment1_gr23
             set => SetProperty(ref _selectedIndex, value);
         }
 
-        private Debtor _selectedDeptor;
+        private Debtor _selectedDebtor;
 
-        public Debtor CurrentDeptor
+        public Debtor CurrentDebtor
         {
-            get => _selectedDeptor;
-            set => SetProperty(ref _selectedDeptor, value);
+            get => _selectedDebtor;
+            set => SetProperty(ref _selectedDebtor, value);
         }
 
         private ICommand _addDebtorCommand;
@@ -52,10 +55,17 @@ namespace GUI_assignment1_gr23
         private void AddDebtor()
         {
             AddDebtorWindow adw = new AddDebtorWindow();
+            adw.Closed += AdwOnClosed;
+
             if (adw.ShowDialog() == true)
             {
                 //Do something with data
             }
+        }
+
+        private void AdwOnClosed(object sender, EventArgs e)
+        {
+            DebtorObsList = (ObservableCollection<Debtor>) App.DebtDb.GetDebtors();
         }
 
         private ICommand _viewDebtorCommand;
@@ -65,12 +75,9 @@ namespace GUI_assignment1_gr23
 
         private void ViewDebtor()
         {
-            ViewDebtorWindow vdw = new ViewDebtorWindow();
-            _ea.GetEvent<CurrentDebtorSentEvent>().Publish(CurrentDeptor);
+            ViewDebtorWindow vdw = new ViewDebtorWindow(CurrentDebtor);
             if (vdw.ShowDialog() == true)
             {
-                //Do something with data
-
             }
         }
     }

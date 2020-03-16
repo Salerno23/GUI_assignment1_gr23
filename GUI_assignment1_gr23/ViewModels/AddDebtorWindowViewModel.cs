@@ -11,7 +11,7 @@ using GUI_assignment1_gr23.Annotations;
 using Prism.Commands;
 using Prism.Mvvm;
 
-namespace GUI_assignment1_gr23
+namespace GUI_assignment1_gr23.ViewModels
 {
     class AddDebtorWindowViewModel : BindableBase
     {

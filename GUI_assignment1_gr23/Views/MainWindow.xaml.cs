@@ -12,8 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CommonServiceLocator;
+using GUI_assignment1_gr23.ViewModels;
+using Prism.Events;
 
-namespace GUI_assignment1_gr23
+namespace GUI_assignment1_gr23.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

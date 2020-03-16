@@ -12,19 +12,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DataBusinessLayer;
+using GUI_assignment1_gr23.ViewModels;
 
-namespace GUI_assignment1_gr23
+namespace GUI_assignment1_gr23.Views
 {
     /// <summary>
     /// Interaction logic for ViewDebtorWindow.xaml
     /// </summary>
     public partial class ViewDebtorWindow : Window
     {
-        public ViewDebtorWindow()
+        /*
+         * Not pretty code. Don't look. Breaks MVVM.
+         */
+        public ViewDebtorWindow(Debtor debtor)
         {
+            var vm = new ViewDebtorWindowViewModel(debtor);
+            DataContext = vm;
             InitializeComponent();
-
         }
-
     }
 }

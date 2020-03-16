@@ -1,64 +1,78 @@
-﻿<Window x:Class="GUI_assignment1_gr23.ViewDebtorWindow"
+﻿<Window x:Class="GUI_assignment1_gr23.Views.ViewDebtorWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:GUI_assignment1_gr23"
         mc:Ignorable="d"
+        x:Name="VDWindow"
         Title="Debts" Height="350" Width="450">
-    <Window.DataContext>
-        <local:ViewDebtorWindowViewModel/>
-    </Window.DataContext>
+    <Window.Resources>
+
+        <DataTemplate x:Key="DebtTemplate">
+            <WrapPanel>
+
+                <TextBlock Text="{Binding Path=Date}"
+                           Padding="5, 0"
+                           MinWidth="30"/>
+
+                <TextBlock Text="{Binding Path=DebtValue}"
+                           Padding="5, 0"
+                           MinWidth="30"/>
+
+            </WrapPanel>
+        </DataTemplate>
+
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"></ColumnDefinition>
-            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
+                <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
 
             <ListBox Grid.Row="0"
-                     MinHeight="250"
-                     VerticalAlignment="Top"
-                     Name="listbox_name"
-                     ItemTemplate="{StaticResource ResourceKey=DebtTemplate}"
+                     Height="150"
                      ItemsSource="{Binding Path=DebtList}"
+                     ItemTemplate="{StaticResource ResourceKey=DebtTemplate}"
                      IsSynchronizedWithCurrentItem="True">
             </ListBox>
             
             <Button Grid.Row="1"
-                Content="Close"
+                    Content="Close"
                     Margin="10"
                     VerticalAlignment="Bottom"
-                    Width="55">
+                    Width="55"
+                    Command="{Binding CloseWindowCommand}"
+                    CommandParameter="{Binding ElementName=VDWindow}">
             </Button>
         </Grid>
         
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition></RowDefinition>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <TextBox Grid.Column="1" Grid.Row="0"
-                Width="100"
+            <TextBox Grid.Column="0" Grid.Row="0"
+                Width="90"
                 MinHeight="12"
                 VerticalAlignment="Bottom"
-                x:Name="Textbox_Value"
                 Text="{Binding Path=TextboxValue}">
             </TextBox>
             
-            <Button Grid.Column="1" Grid.Row="1"
+            <Button Grid.Column="0" Grid.Row="1"
                 Content="Add value"
                 Margin="20"
-                Width="100"
+                Width="90"
                 VerticalAlignment="Top"
-                Command="{Binding Path=AddValueCommand}">
+                Command="{Binding AddValueCommand}">
             </Button>
+
         </Grid>
     </Grid>
 </Window>
