@@ -17,15 +17,21 @@ namespace GUI_assignment1_gr23
         //string currentvalue = null;
         //Debtor currentdebtor = null;
 
-        //public ViewDebtorWindowViewModel() { }
+        public ViewDebtorWindowViewModel(Debtor currentdebtor_) {
+            currentdebtor = currentdebtor_;
+        }
 
-        //public void AddValue()
-        //{
-        //    int valuetemp = int.Parse(currentvalue);
-        //    currentdebtor.Debts.Add(new Debt(valuetemp));
-        //    currentdebtor.TotalDebt += valuetemp;
-        //    TextboxValue = string.Empty;
-        //}
+        public void AddValue()
+        {
+            int valuetemp = int.Parse(currentvalue);
+
+            DebtList = (ObservableCollection<Debt>)App.DebtDb.GetDebtsFor(currentdebtor.ID);
+
+
+            currentdebtor.Debts.Add(new Debt(valuetemp));
+            currentdebtor.TotalDebt += valuetemp;
+            TextboxValue = string.Empty;
+        }
 
         //public void CloseWindow()
         //{
