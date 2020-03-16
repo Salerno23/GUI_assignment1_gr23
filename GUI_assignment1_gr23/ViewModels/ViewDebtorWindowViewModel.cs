@@ -14,74 +14,77 @@ namespace GUI_assignment1_gr23
 {
     class ViewDebtorWindowViewModel : BindableBase
     {
-        ////string currentvalue = null;
-        //Debtor currentdebtor = null;
+        string currentvalue = null;
+        Debtor currentdebtor = null;
 
-        //public ViewDebtorWindowViewModel(Debtor currentdebtor_) {
-        //    currentdebtor = currentdebtor_;
-        //}
+        public ViewDebtorWindowViewModel(Debtor currentdebtor_)
+        {
+            currentdebtor = currentdebtor_;
+        }
 
         //public void AddValue()
         //{
         //    int valuetemp = int.Parse(currentvalue);
 
-        //    DebtList = (ObservableCollection<Debt>)App.DebtDb.GetDebtsFor(currentdebtor.ID);
+            //DebtList = (ObservableCollection<Debt>)App.DebtDb.GetDebtsFor(currentdebtor.Id);
 
+            DebtList.Add(new Debt(valuetemp, DateTime.Now));
 
-        //    currentdebtor.Debts.Add(new Debt(valuetemp));
-        //    currentdebtor.TotalDebt += valuetemp;
-        //    TextboxValue = string.Empty;
-        //}
+            //currentdebtor.Debts.Add(new Debt(valuetemp));
 
-        //public void CloseWindow()
-        //{
+            currentdebtor.TotalDebt += valuetemp;
+            TextboxValue = string.Empty;
+        }
+
+        public void CloseWindow()
+        {
             
-        //}
+        }
 
-        //public ObservableCollection<Debt> DebtList
-        //{
-        //    get
-        //    {
-        //        return currentdebtor.Debts;
-        //    }
-        //    set
-        //    {
-        //        //SetProperty(ref currentdebtor.Debts, value);
-        //    }
-        //}
+        public ObservableCollection<Debt> DebtList
+        {
+            get
+            {
+                return (ObservableCollection<Debt>)App.DebtDb.GetDebtsFor(currentdebtor.Id);
+            }
+            set
+            {
+                //SetProperty(ref currentdebtor.Debts, value);
+            }
+        }
 
-        //public string TextboxValue
-        //{
-        //    get
-        //    {
-        //        return currentvalue;
-        //    }
-        //    set
-        //    {
-        //        SetProperty(ref currentvalue, value);
-        //    }
-        //}
+        public string TextboxValue
+        {
+            get
+            {
+                return currentvalue;
+            }
+            set
+            {
+                SetProperty(ref currentvalue, value);
+            }
+        }
 
 
         //ICommand addValue;
 
-        //public ICommand AddValueCommand
-        //{
-        //    get
-        //    {
-        //        return addValue ?? (addValue = new DelegateCommand(AddValue));
-        //    }
-        //}
+        public ICommand AddValueCommand
+        {
+            get
+            {
+                return addValue ?? (addValue = new DelegateCommand(AddValue));
+            }
+        }
 
-        //ICommand closeWindow;
+        ICommand closeWindow;
 
-        //public ICommand CloseWindowCommand
-        //{
-        //    get
-        //    {
-        //        return closeWindow ?? (closeWindow = new DelegateCommand(CloseWindow));
-        //    }
-        //}
+        public ICommand CloseWindowCommand
+        {
+            get
+            {
+                return closeWindow ?? (closeWindow = new DelegateCommand(CloseWindow));
+            }
+        }
 
     }
 }
