@@ -17,7 +17,8 @@ namespace GUI_assignment1_gr23
         string currentvalue = null;
         Debtor currentdebtor = null;
 
-        public ViewDebtorWindowViewModel(Debtor currentdebtor_) {
+        public ViewDebtorWindowViewModel(Debtor currentdebtor_)
+        {
             currentdebtor = currentdebtor_;
         }
 
@@ -25,10 +26,12 @@ namespace GUI_assignment1_gr23
         {
             int valuetemp = int.Parse(currentvalue);
 
-            DebtList = (ObservableCollection<Debt>)App.DebtDb.GetDebtsFor(currentdebtor.ID);
+            //DebtList = (ObservableCollection<Debt>)App.DebtDb.GetDebtsFor(currentdebtor.Id);
 
+            DebtList.Add(new Debt(valuetemp, DateTime.Now));
 
-            currentdebtor.Debts.Add(new Debt(valuetemp));
+            //currentdebtor.Debts.Add(new Debt(valuetemp));
+
             currentdebtor.TotalDebt += valuetemp;
             TextboxValue = string.Empty;
         }
@@ -42,7 +45,7 @@ namespace GUI_assignment1_gr23
         {
             get
             {
-                return currentdebtor.Debts;
+                return (ObservableCollection<Debt>)App.DebtDb.GetDebtsFor(currentdebtor.Id);
             }
             set
             {
