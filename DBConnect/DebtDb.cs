@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.ComponentModel;
-using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace DataBusinessLayer
 {

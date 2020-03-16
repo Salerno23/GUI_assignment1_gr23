@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using DataBusinessLayer;
 using System.Windows;
-using DataBusinessLayer;
-using DBConnect;
 
 namespace GUI_assignment1_gr23
 {

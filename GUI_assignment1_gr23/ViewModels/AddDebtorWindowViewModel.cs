@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Input;
-using DataBusinessLayer;
-using GUI_assignment1_gr23.Annotations;
+﻿using DataBusinessLayer;
 using Prism.Commands;
 using Prism.Mvvm;
+using System;
+using System.Windows;
+using System.Windows.Input;
 
 namespace GUI_assignment1_gr23.ViewModels
 {

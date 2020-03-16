@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Input;
-using DataBusinessLayer;
+﻿using DataBusinessLayer;
 using GUI_assignment1_gr23.Views;
 using Prism.Commands;
 using Prism.Mvvm;
+using System;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace GUI_assignment1_gr23.ViewModels
 {
@@ -28,7 +21,7 @@ namespace GUI_assignment1_gr23.ViewModels
         public MainWindowViewModel()
         {
             DebtorObsList = (ObservableCollection<Debtor>) App.DebtDb.GetDebtors();
-            CurrentDebtor = DebtorObsList[_selectedIndex];
+            CurrentDebtor = DebtorObsList.Count == 0 ? null : DebtorObsList[_selectedIndex];
         }
 
         private int _selectedIndex = 0;
@@ -57,10 +50,7 @@ namespace GUI_assignment1_gr23.ViewModels
             AddDebtorWindow adw = new AddDebtorWindow();
             adw.Closed += AdwOnClosed;
 
-            if (adw.ShowDialog() == true)
-            {
-                //Do something with data
-            }
+            if (adw.ShowDialog() == true) { }
         }
 
         private void AdwOnClosed(object sender, EventArgs e)
@@ -76,9 +66,7 @@ namespace GUI_assignment1_gr23.ViewModels
         private void ViewDebtor()
         {
             ViewDebtorWindow vdw = new ViewDebtorWindow(CurrentDebtor);
-            if (vdw.ShowDialog() == true)
-            {
-            }
+            if (vdw.ShowDialog() == true) { }
         }
     }
 }

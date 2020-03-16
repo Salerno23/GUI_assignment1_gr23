@@ -5,12 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         x:Name="VDWindow"
-        Title="Debts" Height="350" Width="450">
+        Title="Debts" Height="250" Width="450">
     <Window.Resources>
 
         <DataTemplate x:Key="DebtTemplate">
             <WrapPanel>
-
                 <TextBlock Text="{Binding Path=Date}"
                            Padding="5, 0"
                            MinWidth="30"/>
@@ -18,9 +17,32 @@
                 <TextBlock Text="{Binding Path=DebtValue}"
                            Padding="5, 0"
                            MinWidth="30"/>
-
             </WrapPanel>
         </DataTemplate>
+
+        <Style x:Key="CloseButtonStyle">
+            <Style.Setters>
+                <Setter Property="Button.Margin" Value="10"/>
+                <Setter Property="Button.VerticalAlignment" Value="Bottom"/>
+                <Setter Property="Button.Width" Value="55"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="ValueTextBoxStyle">
+            <Style.Setters>
+                <Setter Property="TextBox.Width" Value="90"/>
+                <Setter Property="TextBox.MinHeight" Value="12"/>
+                <Setter Property="TextBox.VerticalAlignment" Value="Bottom"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="AddValueButtonStyle">
+            <Style.Setters>
+                <Setter Property="Button.Margin" Value="20"/>
+                <Setter Property="Button.Width" Value="90"/>
+                <Setter Property="Button.VerticalAlignment" Value="Top"/>
+            </Style.Setters>
+        </Style>
 
     </Window.Resources>
     <Grid>
@@ -31,8 +53,8 @@
 
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
 
             <ListBox Grid.Row="0"
@@ -44,9 +66,7 @@
             
             <Button Grid.Row="1"
                     Content="Close"
-                    Margin="10"
-                    VerticalAlignment="Bottom"
-                    Width="55"
+                    Style="{StaticResource CloseButtonStyle}"
                     Command="{Binding CloseWindowCommand}"
                     CommandParameter="{Binding ElementName=VDWindow}">
             </Button>
@@ -58,18 +78,16 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <TextBox Grid.Column="0" Grid.Row="0"
-                Width="90"
-                MinHeight="12"
-                VerticalAlignment="Bottom"
+            <TextBox 
+                Grid.Column="0" 
+                Grid.Row="0"
+                Style="{StaticResource ValueTextBoxStyle}"
                 Text="{Binding Path=TextboxValue}">
             </TextBox>
             
             <Button Grid.Column="0" Grid.Row="1"
                 Content="Add value"
-                Margin="20"
-                Width="90"
-                VerticalAlignment="Top"
+                Style="{StaticResource AddValueButtonStyle}"
                 Command="{Binding AddValueCommand}">
             </Button>
 
