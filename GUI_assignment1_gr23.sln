@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI_assignment1_gr23", "GUI_assignment1_gr23\GUI_assignment1_gr23.csproj", "{2F044DF5-EF4F-4CD2-8290-23846F7050F9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentationLayer", "GUI_assignment1_gr23\PresentationLayer.csproj", "{2F044DF5-EF4F-4CD2-8290-23846F7050F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBusinessLayer", "DBConnect\DataBusinessLayer.csproj", "{93295B6C-4B73-4454-966D-AF9D883D38E0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database Creation", "Database Creation", "{DB1E778C-BAC3-45BC-B8E1-50E9D94904C5}"
+	ProjectSection(SolutionItems) = preProject
+		CreateTables.sql = CreateTables.sql
+		TestDummyData.sql = TestDummyData.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,10 @@ Global
 		{2F044DF5-EF4F-4CD2-8290-23846F7050F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F044DF5-EF4F-4CD2-8290-23846F7050F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F044DF5-EF4F-4CD2-8290-23846F7050F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93295B6C-4B73-4454-966D-AF9D883D38E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93295B6C-4B73-4454-966D-AF9D883D38E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93295B6C-4B73-4454-966D-AF9D883D38E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93295B6C-4B73-4454-966D-AF9D883D38E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

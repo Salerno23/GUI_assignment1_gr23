@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using DataBusinessLayer;
 using Prism.Commands;
 using Prism.Mvvm;
 
@@ -16,17 +17,13 @@ namespace GUI_assignment1_gr23
         string currentvalue = null;
         Debtor currentdebtor = null;
 
-        public ViewDebtorWindowViewModel()
-        {
-            currentdebtor = MainWindowViewModel.Instance.CurrentDeptor;
+        public ViewDebtorWindowViewModel() { }
 
-        }
-
-    public void AddValue()
+        public void AddValue()
         {
             int valuetemp = int.Parse(currentvalue);
             currentdebtor.Debts.Add(new Debt(valuetemp));
-            currentdebtor.TotalDept += valuetemp;
+            currentdebtor.TotalDebt += valuetemp;
             TextboxValue = string.Empty;
         }
 
@@ -41,10 +38,10 @@ namespace GUI_assignment1_gr23
             {
                 return currentdebtor.Debts;
             }
-            //set
-            //{
-            //    //SetProperty(ref currentdebtor.Debts, value);
-            //}
+            set
+            {
+                //SetProperty(ref currentdebtor.Debts, value);
+            }
         }
 
         public string TextboxValue

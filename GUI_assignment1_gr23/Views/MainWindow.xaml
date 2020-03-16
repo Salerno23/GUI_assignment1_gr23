@@ -43,7 +43,7 @@
                             Text="{Binding Path=Name}"/>
                         <TextBlock 
                             Grid.Column="1" 
-                            Text="{Binding Path=Value}"/>
+                            Text="{Binding Path=TotalDebt}"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

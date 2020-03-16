@@ -5,29 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 using Prism.Mvvm;
 
-namespace GUI_assignment1_gr23
+namespace DataBusinessLayer
 {
     public class Debt : BindableBase
     {
-
-        private string _date;
+        private DateTime _date;
         private int _value;
 
-        //Default constructor - skal den overhovedet bruges??
-        //public Debt()
-        //{
-        //    _date = DateTime.Now.ToString();
-        //    _value = 0;
-        //}
-
-        public Debt(int value)
+        public Debt(int value, DateTime date)
         {
-            _date = DateTime.Now.ToShortDateString();
+            _date = date;
             _value = value;
-            
         }
 
-        public string Date
+        public DateTime Date
         {
             get => _date;
         }
