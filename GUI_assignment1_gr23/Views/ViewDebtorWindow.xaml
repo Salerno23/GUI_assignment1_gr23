@@ -10,7 +10,7 @@
 
         <DataTemplate x:Key="DebtTemplate">
             <WrapPanel>
-                <TextBlock Text="{Binding Path=Date}"
+                <TextBlock Text="{Binding Path=DateShort}"
                            Padding="5, 0"
                            MinWidth="30"/>
 

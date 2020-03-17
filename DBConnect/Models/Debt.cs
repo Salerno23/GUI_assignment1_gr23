@@ -16,7 +16,12 @@ namespace DataBusinessLayer
 
         public string Date
         {
-            get => _date.ToString("s");
+            get => _date.ToString("O");
+        }
+
+        public string DateShort
+        {
+            get => _date.ToString("d");
         }
 
         public int DebtValue

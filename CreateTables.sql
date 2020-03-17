@@ -18,7 +18,7 @@ GO
 
 CREATE TABLE [dbo].[Debts](
 	[DebtorId] [int] NOT NULL FOREIGN KEY REFERENCES Debtors(DebtorId),
-	[Date] [date],
+	[Date] [datetime2],
 	[DebtValue] [int] NOT NULL,
 ) ON [PRIMARY]
 GO
